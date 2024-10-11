@@ -11,7 +11,7 @@ const Header = ({movies,setMovies,movies2}) => {
       <div id="search-box">
         <Search movies = {movies} setMovies = {setMovies} movies2 = {movies2}/>
       
-       <Filter movies = {movies} />
+       <Filter movies = {movies} setMovies = {setMovies} movies2 = {movies2}/>
        </div>
     </header>
   );
