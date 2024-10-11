@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { FetchMovies } from '../../data/FetchMovies';
 import './Search.css';
 
-const Search = () => {
+const Search = ({movies,setMovies,movies2}) => {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState([]);
 
+  const restoreMovies=()=>{
+    setMovies(movies2)
+  }
   const handleInputChange = (e) => {
+    restoreMovies()
     setQuery(e.target.value);
   };
 
@@ -15,15 +18,15 @@ const Search = () => {
       handleSearch();
     }
   };
-
-  const handleSearch = async () => {
+  const handleSearch = () => {
+    
     try {
-      const movies = await FetchMovies();
+      console.log(movies);
       const filteredResults = movies.filter((item) => {
-        return item.original_title.toLowerCase().includes(query.trim().toLowerCase());
+        return (item.original_title.toLowerCase().includes(query.trim().toLowerCase()));
       });
-  
-      console.log("Filtered results:", filteredResults);
+      setMovies(filteredResults);
+      // console.log("Filtered results:", filteredResults);
       setResult(filteredResults);
     } catch (error) {
       console.error("Error fetching movies:", error);
@@ -42,11 +45,11 @@ const Search = () => {
         id='search-input'
       />
       <button onClick={handleSearch}>Search</button>
-      <ul>
+      {/* <ul>
         {result.map((data, id) => (
           <li key={id}>{data.original_title}</li>
         ))}
-      </ul>
+      </ul> */}
     </>
   );
 };
