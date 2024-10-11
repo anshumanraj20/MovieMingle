@@ -4,8 +4,8 @@ const Filter = () => {
     <div>
       
       <select name="filter" id="filter">
-      <option value={'name'}>name</option>
-        <option value={'genre'}>genre</option>
+      <option value="khan">khan</option>
+      
       </select>
     </div>
   );
