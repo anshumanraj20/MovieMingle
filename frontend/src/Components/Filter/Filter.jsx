@@ -1,9 +1,8 @@
-
-import './Filter.css'
+import './Filter.css';
 import React, { useEffect, useState } from 'react';
 import { FetchGenre } from '../../data/FetchGenre';
 
-const Filter = () => {
+const Filter = ({ movies, setMovies, movies2 }) => {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('');
 
@@ -11,7 +10,6 @@ const Filter = () => {
     const fetchData = async () => {
       try {
         const fetchedGenres = await FetchGenre();
-        console.log(fetchedGenres);
         setGenres(fetchedGenres); 
       } catch (error) {
         console.error('Error fetching genres:', error);
@@ -21,8 +19,24 @@ const Filter = () => {
     fetchData();
   }, []);
 
-  const handleGenreChange = (e) => {
-    setSelectedGenre(e.target.value);
+  const handleGenreChange = (genreName) => {
+    const genreId = genres.find(genre => genre.name === genreName)?.id;
+
+    if (genreId) {
+      const filteredMovies = movies2.filter((movie) => {
+        return movie.genre_ids.includes(genreId);
+      });
+      setMovies(filteredMovies);
+    }
+  };
+
+  const handleSelectChange = (e) => {
+    const genreName = e.target.value;
+    setSelectedGenre(genreName);
+    
+    // Reset the movies to original list before applying filter
+    setMovies(movies2);
+    handleGenreChange(genreName);
   };
 
   return (
@@ -31,7 +45,7 @@ const Filter = () => {
         name="genres"
         id="genres"
         value={selectedGenre}
-        onChange={handleGenreChange}
+        onChange={handleSelectChange}
       >
         <option value="" disabled>Select a genre</option>
         {genres.map((genre) => (
