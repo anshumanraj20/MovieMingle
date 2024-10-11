@@ -1,0 +1,17 @@
+.movie-card{
+    background-color: rgb(161, 159, 156);
+    width: 30vw;
+    text-align: center;
+    padding: 20px 0;
+    margin: 5px;
+    border-radius: 2em;
+    max-width: 400px;
+}
+.movie-card img{
+    width: 80%;
+    border-radius:1.5em;
+}
+.movie-card:hover{
+    box-shadow: 0px 0px 10px black;
+    background-color:  rgb(189, 177, 159);
+}
