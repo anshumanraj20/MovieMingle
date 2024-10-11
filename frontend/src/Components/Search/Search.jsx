@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Search.css';
 
 const Search = ({movies,setMovies,movies2}) => {
@@ -42,6 +42,7 @@ const Search = ({movies,setMovies,movies2}) => {
         value={query}
         onChange={handleInputChange}
         onKeyDown={handleEnter}
+        id='search-input'
       />
       <button onClick={handleSearch}>Search</button>
       {/* <ul>

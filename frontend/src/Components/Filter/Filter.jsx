@@ -1,3 +1,5 @@
+
+import './Filter.css'
 import React, { useEffect, useState } from 'react';
 import { FetchGenre } from '../../data/FetchGenre';
 
