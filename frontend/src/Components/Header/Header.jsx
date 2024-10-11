@@ -2,14 +2,16 @@ import "./Header.css";
 import Search from "../Search/Search";
 import Filter from "../Filter/Filter";
 import logo from "../../utils/photos/th.jpg";
-const Header = () => {
+
+const Header = ({movies,setMovies,movies2}) => {
+  // console.log(movies)
   return (
     <header className="header">
       <img src={logo} alt="logo" />
       <div id="search-box">
-        <Search />
+        <Search movies = {movies} setMovies = {setMovies} movies2 = {movies2}/>
       
-       <Filter />
+       <Filter movies = {movies} />
        </div>
     </header>
   );
