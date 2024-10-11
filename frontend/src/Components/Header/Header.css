@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+.header #search-box{
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+.header img{
+    width: 4em;
+    margin-right:1em ;
+}
