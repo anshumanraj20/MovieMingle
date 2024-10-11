@@ -1,5 +1,5 @@
 .movie-card{
-    background-color: rgb(161, 159, 156);
+    background-color: rgba(225, 224, 222, 0.392);
     width: 30vw;
     text-align: center;
     padding: 20px 0;
@@ -13,5 +13,5 @@
 }
 .movie-card:hover{
     box-shadow: 0px 0px 10px black;
-    background-color:  rgb(189, 177, 159);
+    background-color:  rgba(225, 224, 222, 0.491);
 }

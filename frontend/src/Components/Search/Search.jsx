@@ -39,6 +39,7 @@ const Search = () => {
         value={query}
         onChange={handleInputChange}
         onKeyDown={handleEnter}
+        id='search-input'
       />
       <button onClick={handleSearch}>Search</button>
       <ul>
