@@ -1,17 +1,7 @@
-import {FetchMovies} from '../../data/FetchMovies'
 import MovieCard from '../MovieCard/MovieCard'
-import {useEffect,useState} from 'react'
+
 import './Movielist.css'
-const Movielist = () => {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    const getMovies=async()=>{
-      const movies=await FetchMovies()
-      console.log(movies)
-      setMovies(movies)
-    }
-    getMovies()
-  }, []);
+const Movielist = ({movies}) => {
   if(!movies) return (<></>)
   return (
     <div id='movie-list' >{
